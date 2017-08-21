@@ -1,0 +1,15 @@
+zh-CN:
+  attributes:
+    id: ID
+    name: 姓名
+    email: 邮箱
+    mobile: 手机号
+    password: 密码
+    weixin: 微信号码
+    qq: QQ号码
+    created_at: 添加时间
+    updated_at: 更新时间
+    status: 状态
+    result: 状态
+    disabled: 状态
+    actions: 操作

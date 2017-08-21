@@ -1,0 +1,32 @@
+<header class="topbanner">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navigation" style="background-color: #ffffff;">
+        <div class="toggler">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </div>
+        <div class="navbar-header">
+            <a href="/admin/dashboard" class="navbar-brand"></a>
+            <span class="org-name">阿拉善左旗执法系统</span>
+        </div>
+
+        <div class="user-info">
+            <a id="user-avatar" href="#">
+                <%= image_tag (current_user.avatar_url and [current_user.avatar_url, '?x-oss-process=image/resize,m_fill,h_22,w_22'].join) || "default-avatar.png", class: "logo" %>
+                <span style="color: #32a9ff"><%= current_user.display_name %></span>
+            </a>
+            <div id="dropdown-menu">
+                <div class="arrow" style="left: 50%;"></div>
+                <ul>
+                    <li>
+                        <a href="<%= edit_admin_user_path(current_user) %>">修改密码</a>
+                    </li>
+                    <li>
+                        <a href="/users/sign_out" data-method="delete">退出登录</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>

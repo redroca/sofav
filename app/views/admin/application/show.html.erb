@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="title">
+    <span>
+      <%= decorate.try(:show_page_title) || "查看" %>
+    </span>
+    <div class="pull-right btn-groups">
+      <%= yield(:permitted_methods).presence || render_class_actions(decorator) %>
+    </div>
+  </div>
+  <div class="body">
+    <%= yield(:breadcrumb_nav).presence || render('breadcrumb_nav') %>
+    <div class="show-box">
+      <%= build_view_for(:show_page_attributes) %>
+    </div>
+  </div>
+</div>

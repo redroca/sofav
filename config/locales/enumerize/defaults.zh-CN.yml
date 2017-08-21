@@ -1,0 +1,7 @@
+zh-CN:
+  enumerize:
+    defaults:
+      # 性别
+      gender:
+        M: 男
+        F: 女

@@ -1,0 +1,10 @@
+<section class="breadcrumb-nav clearfix">
+  <ol class="breadcrumb">
+    <li>
+      <%= link_to(controller.controller_name_human, url_for(controller: controller_path)) %>
+    </li>
+    <li class="active">
+      <%= link_to(controller.action_name_human(action_name), 'javascript:;', class: 'active') %>
+    </li>
+  </ol>
+</section>

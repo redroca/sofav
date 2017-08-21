@@ -1,0 +1,7 @@
+zh-CN:
+  action: 操作
+  successful: 成功
+  failed: 失败
+  completed: 完成
+  confirm: 确定要继续%{action}吗？
+  no_data: 暂时还没有数据，马上添加吧！

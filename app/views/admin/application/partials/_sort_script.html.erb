@@ -1,0 +1,32 @@
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function(){
+    $('.sort-col').hide();
+    var saveSortingResult = function() {
+      var order_ids = $("<%= container_id%>").sortable("toArray", {attribute: 'data-id'});
+      $.ajax({
+        url: '/admin/<%= resource_parts %>/sort',
+        type: 'post',
+        contentType:'application/json',
+        data: JSON.stringify({ordered_ids: order_ids, current_page: $('#current_page').val(), per_page: $('#per_page').val() }),
+        dataType: 'application/json',
+        success: function(resp) {
+          alert("数据更新成功!");
+        }
+      })
+    }
+
+    $('<%= sort_btn_id%>').on('click', function(){
+      if ($('<%= sort_btn_id%>').hasClass('sorting')) {
+        $('<%= sort_btn_id%>').text('排序').removeClass('sorting');
+        $('.sort-col').hide();
+        $('<%= container_id%>').sortable({disabled: true}).enableSelection();
+        saveSortingResult();
+      } else {
+        alert("请拖拽每行数据开始排序!");
+        $('<%= sort_btn_id%>').text('完成').addClass('sorting');
+        $('.sort-col').show();
+        $('<%= container_id%>').sortable({disabled: false}).disableSelection();
+      }
+    })
+  });
+</script>

@@ -1,0 +1,21 @@
+zh-CN:
+  actions:
+    index: 列表
+    show: 查看详情
+    new: 添加
+    create: 创建
+    edit: 编辑
+    reset_password: 重置密码
+    recharge: 充值
+    update: 更新
+    disable: 禁用
+    enable: 启用
+    delete: 删除
+    destroy: 删除
+    submit: 提交
+    search: 搜索
+    reset: 清空条件
+    back: 返回
+    back_to_list: 返回列表
+    feedback: 添加评论
+    edit_sights: 编辑景点

@@ -1,0 +1,17 @@
+zh-CN:
+  views:
+    pagination:
+      first: 第一页
+      previous: '&lt;'
+      truncate: ...
+      next: '&gt;'
+      last: 最后一页
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "暂时还没有内容喔"
+          one: "显示仅有的 <span class='text-primary'>1</span> 条记录"
+          other: "显示第 <span class='text-primary'>1&nbsp;-&nbsp;%{count}</span> 条, 共 <span class='text-primary'>%{count}</span> 条记录"
+      more_pages:
+        display_entries: "显示第 <span class='text-primary'>%{first}&nbsp;-&nbsp;%{last}</span> 条, 共 <span class='text-primary'>%{total}</span> 条记录"

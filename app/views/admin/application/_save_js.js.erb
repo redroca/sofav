@@ -1,0 +1,20 @@
+<% @record.errors.each do |k, v| %>
+  var $errorOBJ_<%= k %> = $('#_form_id_<%= k %>');
+  var $errorFormGroup_<%= k %> = $errorOBJ_<%= k %>.parents('div.form-group');
+
+  $errorFormGroup_<%= k %>.removeClass('has-error');
+  $errorFormGroup_<%= k %>.find('p.help-block').remove();
+  $errorFormGroup_<%= k %>.addClass('has-error');
+  $errorOBJ_<%= k %>.after('<p class="help-block"><%= v %></p>');
+
+  $errorOBJ_<%= k %>.bind('keydown mousedown', function () {
+      $errorFormGroup_<%= k %>.removeClass('has-error');
+      $errorFormGroup_<%= k %>.find('p.help-block').remove();
+  });
+<% end %>
+
+<% if @record.errors.empty? %>
+  bootbox.alert("操作成功！", function(){
+    location.href = "<%= polymorphic_url [:admin, model] %>"
+  })
+<% end %>

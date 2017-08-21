@@ -1,0 +1,5 @@
+<%= link_to t('actions.destroy'),
+      [scope, record],
+      data: {confirm: t('confirm', action: t('actions.destroy')), method: 'delete', remote: true},
+      class: 'btn btn-sm btn-danger'
+%>

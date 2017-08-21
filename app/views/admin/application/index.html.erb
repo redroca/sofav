@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="title">
+    <span>
+      <%= decorate.try(:index_page_title) || controller.controller_name_human %>
+    </span>
+    <div class="btn-groups" style="margin-left: auto;">
+      <%= yield(:permitted_methods).presence || render_class_actions(decorator) %>
+    </div>
+  </div>
+  <div class="body">
+      <%= yield(:breadcrumb_nav).presence || render('breadcrumb_nav') %>
+      <div class="filters-box clearfix">
+        <%= yield(:collection_filters).presence || collection_filters_tag(decorator, :collection_filters) %>
+        <%= yield(:collection_search).presence || collection_search_tag(decorator, :collection_search) %>
+      </div>
+      <div class="datalist">
+        <%= yield(:collection_table).presence || collection_table_tag(records, decorator, :collection_attributes) %>
+        <%= yield(:paginate).presence || paginate(records, theme: 'admin') %>
+      </div>
+    </section>
+
+  </div>
+</div>

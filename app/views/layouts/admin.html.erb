@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= yield(:title).presence %></title>
+        <meta charset="utf-8">
+        <%= csrf_meta_tags %>
+
+        <%= favicon_link_tag asset_url("favicon.png"), type: 'image/png'%>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <meta name="viewport" content="width=800">
+        <meta name="renderer" content="webkit">
+        <%= stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload' %>
+        <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    </head>
+
+    <body>
+        <div class="admin">
+            <%= render 'topbar' %>
+
+            <div class="main">
+                <%= render 'sidebar' %>
+                <div class="content">
+                  <%= yield %>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

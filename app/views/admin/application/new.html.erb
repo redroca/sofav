@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="title">
+    <span>
+      <%= decorate.try(:edit_page_title) || "新增" %>
+    </span>
+    <div class="btn-groups" style="margin-left: auto;">
+      <%= yield(:permitted_methods).presence || render_class_actions(decorator) %>
+    </div>
+  </div>
+  <div class="body">
+    <%= yield(:breadcrumb_nav).presence || render('breadcrumb_nav') %>
+    <div class="show-box">
+      <%= form_for record, url: [:admin, model], method: 'post', builder: Admin::FormBuilder, enforce_utf8: false, html: {class: 'panel-form', novalidate: true, data: {remote: true}} do |f| %>
+          <%= f.build_form_for(decorator, :form_attributes) %>
+      <% end %>
+    </div>
+  </div>
+</div>

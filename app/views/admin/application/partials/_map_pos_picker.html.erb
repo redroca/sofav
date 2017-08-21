@@ -1,0 +1,101 @@
+<div class="row thumbnail">
+  <div class="col-sm-4">
+    <input id="address-search-input" class="form-control" placeholder="输入关键字开始搜索" autocomplete='off'/>
+  </div>
+  <div class="col-sm-8">
+    <small id="map-address-result"></small>
+  </div>
+  <div class="" id="map-container" style="width: 100%;height: 300px;"></div>
+</div>
+
+
+<script type="text/javascript">
+  var latInputId = "<%= f.input_dom_id(options[:lat_field])%>";
+  var lngInputId = "<%= f.input_dom_id(options[:lng_field])%>";
+  require(['jq'], function () {
+    var $ = jQuery;
+
+    var markers = [];
+    $(function() {
+     var map = new AMap.Map("map-container", {
+         resizeEnable: true
+     });
+     var geocoder = new AMap.Geocoder({
+          radius: 1000,
+          extensions: "base"
+      });
+
+     var autoOptions = {
+         input: "address-search-input"
+     };
+     var auto = new AMap.Autocomplete(autoOptions);
+     AMap.event.addListener(auto, "select", selectItem);
+     function selectItem(e) {
+      updateLocationInputs(e.poi.location)
+      map.setCenter(e.poi.location);
+      map.setZoom(18);
+      addMarkerToMap(e.poi.location)
+     }
+
+     function addMarkerToMap(location) {
+        map.setCenter(location);
+        map.remove(markers);
+       var marker = new AMap.Marker({
+         position: location,
+         draggable: true,
+         cursor: 'move',
+         raiseOnDrag: true
+       });
+       marker.setMap(map);
+       AMap.event.addListener(marker, 'dragend', function(e){
+         updateLocationInputs(e.lnglat)
+       });
+
+       markers.push(marker);
+     }
+
+    //  $('#cities').on('change', function(e){
+    //     map.setCity($('#cities').val())
+    //     auto.setCity($('#cities').val())
+    //  })
+    //  if($('#cities').val() ) {
+    //    auto.setCity($('#cities').val())
+    //  }
+
+     function updateLocationInputs(location) {
+      $('#' + latInputId).val(location.lat)
+      $('#' + lngInputId).val(location.lng)
+
+      geocoder.getAddress(location, function(status, result) {
+          if (status === 'complete' && result.info === 'OK') {
+             $('#map-address-result').html(result.regeocode.formattedAddress);
+          }
+      });
+
+     }
+
+     /*var placeSearch = new AMap.PlaceSearch({
+         map: map
+     });
+     AMap.event.addListener(auto, "select", select);
+     function select(e) {
+         placeSearch.setCity(e.poi.adcode);
+         placeSearch.search(e.poi.name);
+     }*/
+
+     map.plugin(["AMap.ToolBar"], function() {
+       map.addControl(new AMap.ToolBar());
+     });
+
+     function lnglatChanged() {
+       if($('#' + lngInputId).val() && $('#' + latInputId).val()) {
+        map.setZoomAndCenter(18, [$('#' + lngInputId).val(), $('#' + latInputId).val()])
+        addMarkerToMap([$('#' + lngInputId).val(), $('#' + latInputId).val()])
+       }
+     };
+
+     lnglatChanged();
+   });
+
+  });
+  </script>

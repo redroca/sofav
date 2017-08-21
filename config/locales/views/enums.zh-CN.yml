@@ -1,0 +1,13 @@
+zh-CN:
+  disabled:
+    true_html: <span class="label label-warning">禁用</span>
+    false_html: <span class="label label-success">可用</span>
+  excellent:
+    true_html: <span class="label label-danger">置顶</span>
+    false_html: <span class="label label-success">未置顶</span>
+  canbeignore:
+    true_html: <span class="label label-danger">是</span>
+    false_html: <span class="label label-success">否</span>
+  reviewed:
+    true_html: <span class="label label-success">是</span>
+    false_html: <span class="label label-danger">否</span>

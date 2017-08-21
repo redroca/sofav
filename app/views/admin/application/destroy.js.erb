@@ -1,0 +1,6 @@
+<% if @flag %>
+  alert("删除成功！")
+  location.reload();
+<% else %>
+  alert("删除失败! <%= @record.errors.full_messages.join('\n') %>")
+<% end %>
