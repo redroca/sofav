@@ -1,5 +1,5 @@
 require 'rails'
     
 module Sofa
-  autoload :Loacl ,             'sofa/local'
+  autoload :Local,             'sofa/local'
 end
