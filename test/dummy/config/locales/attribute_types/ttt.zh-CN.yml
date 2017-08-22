@@ -1,9 +1,0 @@
-zh-CN:
-  attribute_types:
-    ttt:
-			name:
-				type: 'text_field',
-				required: true
-			price:
-				type: 'text_field',
-				required: true

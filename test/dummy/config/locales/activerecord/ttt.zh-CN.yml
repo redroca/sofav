@@ -1,8 +1,0 @@
-zh-CN:
-  activerecord:
-    models:
-      ttt:
-    attributes:
-      ttt:
-				name:
-				price:
