@@ -8,6 +8,25 @@ module Sofa
       argument :attributes, type: :array, default: [], banner: "field:type field:type"
       include Sofa::Local
 
+
+      def create_model
+        @agruments = "#{file_name}"
+
+        attributes.each do |a|
+          @agruments += " #{a.name}:#{a.type}"
+        end
+
+        generate "model", @agruments
+      end
+
+      def create_controller
+        generate "controller", "Admin::#{file_name} --skip-routes"
+      end
+
+      def create_kaminari
+         generate "kaminari:views", "default --views-prefix admin"
+      end
+
       def create_locales_activerecord
         @record = Array.new
         attributes.each do |a|
