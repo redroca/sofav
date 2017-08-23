@@ -7,7 +7,7 @@ module Sofa
       source_root File.expand_path('../templates', __FILE__)
       argument :attributes, type: :array, default: [], banner: "field:type field:type"
       include Sofa::Local
-
+      include Sofa::Decorator
 
       def create_model
         @agruments = "#{file_name}"
@@ -38,6 +38,10 @@ module Sofa
       
       def create_locales_attribute_types
         create_config_attribute(file_name, attributes)
+      end
+
+      def create_model_decorator
+        create_decorator(file_name, class_name, attributes)
       end
     end
   end
