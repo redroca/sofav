@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sofav (0.1.7)
+    sofav (0.2.0)
       devise (= 4.3.0)
       doorkeeper (= 4.2.6)
       draper (= 3.0.0)
