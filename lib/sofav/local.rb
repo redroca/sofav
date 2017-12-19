@@ -1,9 +1,9 @@
 require "yaml"
 
-module Sofa
+module Sofav
   module Local
     def create_config_record(file_name, record)
-      record_config = YAML.load_file(File.join(__dir__, '../generators/sofa/templates/activerecord.zh-CN.yml'))
+      record_config = YAML.load_file(File.join(__dir__, '../generators/sofav/templates/activerecord.zh-CN.yml'))
       
       record_config["zh-CN"]["activerecord"]["models"] = {"#{file_name}" => nil}
       record_config["zh-CN"]["activerecord"]["attributes"] = {"#{file_name}" => {"#{record.first}" => nil}}
@@ -19,7 +19,7 @@ module Sofa
     end
 
     def create_config_attribute(file_name, types)
-      attributes_config = YAML.load_file(File.join(__dir__, '../generators/sofa/templates/attribute_types.zh-CN.yml'))
+      attributes_config = YAML.load_file(File.join(__dir__, '../generators/sofav/templates/attribute_types.zh-CN.yml'))
       attributes_config["zh-CN"]["attribute_types"] = {"#{file_name}" => {"#{types.first.name}" => nil}}
 
       types.each do |t|

@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://gems.ruby-china.org'
 
 # Declare your gem's dependencies in sofa.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and

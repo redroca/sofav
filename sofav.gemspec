@@ -1,12 +1,12 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "sofa/version"
+require "sofav/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "sofa"
-  s.version     = Sofa::VERSION
+  s.name        = "sofav"
+  s.version     = Sofav::VERSION
   s.authors     = ["developer"]
   s.email       = ["developer@tavanv.com"]
   s.homepage    = "https://github.com/redroca/SofaRails"
@@ -18,12 +18,12 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,lib,vendor}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.require_paths = ["lib"]
 
-  s.add_dependency "rails", "~> 5.0.5"
-
+  s.add_dependency "kaminari", "1.0.1"
+  s.add_dependency "enumerize", "2.1.2"
+  s.add_dependency "doorkeeper", "4.2.6"
+  s.add_dependency "devise", "4.3.0"
+  s.add_dependency "draper", "3.0.0"
+  
+  s.add_development_dependency "rails", "~> 5.0.5"
   s.add_development_dependency "sqlite3"
-  s.add_development_dependency "kaminari"
-  s.add_development_dependency "enumerize"
-  s.add_development_dependency "doorkeeper"
-  s.add_development_dependency "devise"
-  s.add_development_dependency "draper", "3.0.0"
 end

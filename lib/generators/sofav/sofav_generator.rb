@@ -1,13 +1,15 @@
 require 'rails/generators/named_base'
 require 'rails/generators/active_record'
+require 'sofav/local'
+require 'sofav/decorator'
 
-module Sofa
+module Sofav
   module Generators
-    class SofaGenerator < Rails::Generators::NamedBase
+    class SofavGenerator < Rails::Generators::NamedBase
       source_root File.expand_path('../templates', __FILE__)
       argument :attributes, type: :array, default: [], banner: "field:type field:type"
-      include Sofa::Local
-      include Sofa::Decorator
+      include Sofav::Local
+      include Sofav::Decorator
 
       def create_model
         @agruments = "#{file_name}"
@@ -24,7 +26,7 @@ module Sofa
       end
 
       def create_kaminari
-         generate "kaminari:views", "default --views-prefix admin"
+          generate "kaminari:views", "default --views-prefix admin"
       end
 
       def create_locales_activerecord

@@ -1,4 +1,4 @@
-module Sofa
+module Sofav
   module Decorator
     def create_decorator(file_name, class_name, attributes)
       @attr = ''
@@ -11,9 +11,9 @@ module Sofa
 class #{class_name}Decorator < BaseDecorator
   include EnumerizeConcern
 
-  #collection_search do
-  #  {name: "q", search_in: [], placeholder: '', action: '/admin/', fuzzy: true}
-  #end
+  collection_search do
+   {name: "q", search_in: [], placeholder: '', action: '/admin/#{class_name}', fuzzy: true}
+  end
 
   collection_attributes do
     ["#", ]
