@@ -7,9 +7,9 @@ require "sofa/version"
 Gem::Specification.new do |s|
   s.name        = "sofa"
   s.version     = Sofa::VERSION
-  s.authors     = ["yangdiei"]
-  s.email       = ["yangdie@cloud4magic.com"]
-  s.homepage    = "https://github.com"
+  s.authors     = ["developer"]
+  s.email       = ["developer@tavanv.com"]
+  s.homepage    = "https://github.com/redroca/SofaRails"
   s.summary     = "Rapid Rails Framework."
   s.description = "Rapid Rails Framework."
   s.platform    = Gem::Platform::RUBY
