@@ -1,4 +1,4 @@
-# Sofa
+# Sofav
 Short description and motivation.
 
 ## Usage
@@ -21,7 +21,7 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install sofa
+$ gem install sofav
 ```
 
 ## Development
