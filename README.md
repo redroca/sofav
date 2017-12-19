@@ -24,6 +24,39 @@ Or install it yourself as:
 $ gem install sofav
 ```
 
+
+### Add following:
+```
+gem 'pg'
+```
+
+add database.yml (change dabtabase name)
+```
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  encoding: utf-8
+  host: <%= ENV['POSTGRES_HOST'] || 'localhost' %>
+  username: <%= ENV['POSTGRES_USER'] || 'root'%>
+  password: <%= ENV['POSTGRES_PASSWORD'] || '111'%>
+  database: <%= ENV['POSTGRES_DB'] || 'mj'%>
+development:
+  <<: *default
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: mj-test
+
+production:
+  <<: *default
+  pool: <%= ENV['POSTGRES_POOL_SIZE'] || 64 %>
+  username: <%= ENV['POSTGRES_USER'] || 'root'%>
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
