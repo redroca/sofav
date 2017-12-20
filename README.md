@@ -56,6 +56,9 @@ production:
   pool: <%= ENV['POSTGRES_POOL_SIZE'] || 64 %>
   username: <%= ENV['POSTGRES_USER'] || 'root'%>
 ```
+## TODO
+* copy dockerfile && related scripts && assets to projects
+
 
 ## Development
 
